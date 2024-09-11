@@ -1,0 +1,46 @@
+View all network interfaces: ip addr
+Bring a network interface up or down
+Bring an interface up: sudo ip link set dev eth0 up
+for down the interface: sudo ip link set dev eth0 down 
+Assign an IP address to an interface: sudo ip addr add 192.168.1.100/24 dev eth0
+
+ip route
+
+nslookup google.com
+
+traceroute google.com
+
+3. Network Services and Ports:
+Check open ports and services
+sudo netstat -tuln
+
+Test connectivity to a specific port using telnet or nc:
+Using telnet:
+bash
+Copy code
+telnet google.com 80
+Using nc (Netcat):
+bash
+Copy code
+nc -zv google.com 80
+
+sudo systemctl status firewalld
+
+
+Allow a service (e.g., HTTP) through the firewall:
+bash
+Copy code
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --reload
+
+Block an IP address:
+
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.1.100" reject'
+sudo firewall-cmd --reload
+
+Check active connections:
+ss -tuln
+
+
+Check DNS configuration:
+cat /etc/resolv.conf
